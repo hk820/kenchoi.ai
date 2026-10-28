@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState, useSyncExternalStore } from "react";
 
-type Strand = "finance" | "ai" | "teaching";
+type Strand = "ml" | "ds" | "agentic";
 
 const strands: {
   id: Strand;
@@ -15,9 +15,9 @@ const strands: {
   labelY: number;
   anchor: "start" | "middle" | "end";
 }[] = [
-  { id: "finance", label: "Finance & risk", cx: 122, cy: 118, drift: "kc-drift-1", labelX: 34, labelY: 24, anchor: "start" },
-  { id: "ai", label: "AI engineering", cx: 198, cy: 118, drift: "kc-drift-2", labelX: 286, labelY: 24, anchor: "end" },
-  { id: "teaching", label: "Teaching & research", cx: 160, cy: 184, drift: "kc-drift-3", labelX: 160, labelY: 300, anchor: "middle" },
+  { id: "ml", label: "Machine Learning Engineer", cx: 142, cy: 118, drift: "kc-drift-1", labelX: 6, labelY: 24, anchor: "start" },
+  { id: "ds", label: "Data Scientist", cx: 218, cy: 118, drift: "kc-drift-2", labelX: 354, labelY: 24, anchor: "end" },
+  { id: "agentic", label: "Agentic AI Developer", cx: 180, cy: 184, drift: "kc-drift-3", labelX: 180, labelY: 300, anchor: "middle" },
 ];
 
 const highlights: {
@@ -29,43 +29,43 @@ const highlights: {
 }[] = [
   {
     value: "5 years",
-    text: "in AIA Group Treasury, supporting cash flow forecasting and liquidity analytics.",
-    strands: ["finance"],
+    text: "in AIA Group Treasury, supporting machine-learning cash flow forecasting and liquidity analytics.",
+    strands: ["ml", "ds"],
     href: "/resume",
     cta: "See experience",
   },
   {
     value: "8 crises",
-    text: "replayed on a $1M portfolio in my stress-testing tool, with sliders to try your own shocks.",
-    strands: ["finance"],
+    text: "replayed on a $1M portfolio in my stress-testing tool, with factor models and sliders to try your own shocks.",
+    strands: ["ds"],
     href: "/projects/portfolio-stress-testing",
     cta: "See the project",
   },
   {
+    value: "20,000",
+    text: "simulated years behind the risk check in my portfolio review tool, with GARCH volatility forecasts.",
+    strands: ["ds", "ml"],
+    href: "/projects/portfolio-review-rebalancing",
+    cta: "See the project",
+  },
+  {
     value: "10 guardrails",
-    text: "categories enforced in code around a tool-calling AI agent, with adversarial tests.",
-    strands: ["ai", "teaching"],
+    text: "categories enforced in code around a tool-calling AI agent, with automated adversarial tests.",
+    strands: ["agentic"],
     href: "/projects/ai-agent-guardrail-lab",
     cta: "See the project",
   },
   {
-    value: "Agentic AI",
-    text: "for FinTech and Business Applications, one of the HKU SPACE modules I design and teach.",
-    strands: ["finance", "ai", "teaching"],
-    href: "/resume",
-    cta: "See teaching",
-  },
-  {
-    value: "3 talks",
-    text: "at HKU SPACE on GenAI, Web3, AI agents and the future of finance.",
-    strands: ["teaching", "ai"],
-    href: "/resume",
-    cta: "Watch the talks",
+    value: "End to end",
+    text: "from data pipelines and forecasting models to tool-calling AI agents, built in Python.",
+    strands: ["ml", "ds", "agentic"],
+    href: "/projects",
+    cta: "See the projects",
   },
   {
     value: "IFRS 17",
-    text: "co-authored research on insurers' risk trade-offs, now under review.",
-    strands: ["finance", "teaching"],
+    text: "co-authored research using statistical models and hypothesis testing, now under review.",
+    strands: ["ds"],
     href: "/resume",
     cta: "See research",
   },
@@ -117,10 +117,10 @@ export function StrandsDiagram() {
       onBlur={() => setHovered(false)}
     >
       <svg
-        viewBox="0 0 320 312"
-        className="mx-auto w-full max-w-[320px]"
+        viewBox="0 0 360 312"
+        className="mx-auto w-full max-w-[360px]"
         role="img"
-        aria-label="Three overlapping circles: finance and risk, AI engineering, and teaching and research. The highlighted circles show where the current example comes from."
+        aria-label="Three overlapping circles: Machine Learning Engineer, Data Scientist and Agentic AI Developer. The highlighted circles show which roles the current example draws on."
       >
         {strands.map((s) => (
           <g key={s.id} className={s.drift}>
@@ -151,7 +151,14 @@ export function StrandsDiagram() {
           </text>
         ))}
         <circle
-          cx={160}
+          cx={180}
+          cy={140}
+          r={6}
+          className="kc-ripple"
+          style={{ fill: "none", stroke: "var(--accent)", strokeWidth: 2 }}
+        />
+        <circle
+          cx={180}
           cy={140}
           r={6}
           className="kc-pulse"

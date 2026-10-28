@@ -111,7 +111,7 @@ export default function Home() {
           How it fits together
         </p>
         <h2 id="strands-heading" className={`${sectionHeading} mt-3`}>
-          Finance, AI engineering and teaching
+          Machine learning, data science and agentic AI
         </h2>
         <div className="mt-10">
           <StrandsDiagram />
