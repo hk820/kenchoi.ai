@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import Image from "next/image";
 import Link from "next/link";
+import { StrandsDiagram } from "@/components/strands-diagram";
 
 const photoSrc = "/images/ken.jpg";
 const stressTestPreviewSrc = "/images/stress-test-preview.png";
@@ -102,6 +103,18 @@ export default function Home() {
               Work with me
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="strands-heading" className="pb-16 sm:pb-24">
+        <p className="font-mono text-xs font-medium tracking-widest text-accent uppercase">
+          How it fits together
+        </p>
+        <h2 id="strands-heading" className={`${sectionHeading} mt-3`}>
+          Finance, AI engineering and teaching
+        </h2>
+        <div className="mt-10">
+          <StrandsDiagram />
         </div>
       </section>
 
