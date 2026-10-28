@@ -4,6 +4,11 @@ export type Project = {
   summary: string;
   githubUrl: string;
   tags: string[];
+  demo?: {
+    href: string;
+    label: string;
+    note: string;
+  };
 };
 
 export const projects: Project[] = [
@@ -13,6 +18,11 @@ export const projects: Project[] = [
     summary: "[PLACEHOLDER] One-line summary of the stress-testing project.",
     githubUrl: "https://github.com/hk820/portfolio-stress-testing",
     tags: ["Risk", "Python", "Scenario analysis"],
+    demo: {
+      href: "/demos/portfolio-stress-test.html",
+      label: "Open the interactive report",
+      note: "A snapshot using prices to 30 Sep 2026. For learning, not investment advice.",
+    },
   },
   {
     slug: "portfolio-review-rebalancing",

@@ -22,15 +22,31 @@ export function ProjectDetail({ slug }: { slug: string }) {
         </PageIntro>
       </div>
       <TagList tags={project.tags} className="mt-8" />
-      <a
-        href={project.githubUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-10 inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-3 text-sm font-medium text-on-accent transition-opacity hover:opacity-90"
-      >
-        View code on GitHub
-        <span aria-hidden="true">↗</span>
-      </a>
+      <div className="mt-10 flex flex-wrap gap-3">
+        {project.demo && (
+          <a
+            href={project.demo.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-3 text-sm font-medium text-on-accent transition-opacity hover:opacity-90"
+          >
+            {project.demo.label}
+            <span aria-hidden="true">↗</span>
+          </a>
+        )}
+        <a
+          href={project.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-lg border border-line px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
+        >
+          View code on GitHub
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      {project.demo && (
+        <p className="mt-4 text-sm text-muted">{project.demo.note}</p>
+      )}
     </article>
   );
 }
