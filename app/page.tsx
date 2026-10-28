@@ -12,12 +12,15 @@ function hasPublicFile(src: string) {
 }
 
 const stats = [
-  { value: "15+ years", label: "in banking and insurance" },
-  { value: "3 tools", label: "open-source finance projects on GitHub" },
-  { value: "HKU SPACE", label: "Lecturer, Agentic AI for FinTech" },
   {
-    value: "IFRS 17",
-    label: "research with Hang Seng University of Hong Kong",
+    value: "15+ years",
+    label: "in data analytics, forecasting and machine learning",
+  },
+  { value: "16 modules", label: "taught at HKU SPACE on AI, data and FinTech" },
+  { value: "Outstanding Teacher", label: "HKU SPACE award, 2025–26" },
+  {
+    value: "4 organisations",
+    label: "trained in AI, including The Hong Kong Jockey Club and Sony",
   },
 ];
 
@@ -44,6 +47,11 @@ const services = [
     links: [
       { href: "/projects/ai-agent-guardrail-lab", label: "AI Agent Guardrail Lab" },
     ],
+  },
+  {
+    title: "AI training for business teams",
+    text: "Hands-on AI and agentic AI training, delivered for The Hong Kong Jockey Club, Sony (HK) and others.",
+    links: [{ href: "/work-with-me", label: "Training and engagements" }],
   },
 ];
 
@@ -81,9 +89,10 @@ export default function Home() {
             someone who has worked inside one.
           </h1>
           <p className="mt-6 max-w-prose text-lg leading-8 text-muted">
-            15+ years in banking and insurance, most recently in Group Treasury
-            at AIA. I build forecasting models, risk tools and AI agents, and
-            teach Agentic AI for FinTech at HKU SPACE.
+            15+ years in data analytics, forecasting and machine learning,
+            most recently in Group Treasury at AIA. I build forecasting models,
+            risk tools and AI agents, and teach Agentic AI for FinTech at HKU
+            SPACE.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link href="/projects" className={primaryButton}>
@@ -162,7 +171,7 @@ export default function Home() {
         <h2 id="services-heading" className={sectionHeading}>
           What I do
         </h2>
-        <ul className="mt-8 grid gap-4 md:grid-cols-3">
+        <ul className="mt-8 grid gap-4 md:grid-cols-2">
           {services.map((service) => (
             <li
               key={service.title}

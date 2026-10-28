@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Fixed at build time and used for the footer's copyright year.
+  env: {
+    SITE_BUILD_YEAR: String(new Date().getFullYear()),
+  },
   experimental: {
     agentFeedback: true,
   },

@@ -1,6 +1,5 @@
-// Cached so the year is captured in the static shell; Cache Components
-// does not allow a bare `new Date()` during prerendering.
-export async function CopyrightYear() {
-  "use cache";
-  return <>{new Date().getFullYear()}</>;
+// The year is fixed when the site is built (see `env` in next.config.ts),
+// so every page stays fully static with no timed refresh.
+export function CopyrightYear() {
+  return <>{process.env.SITE_BUILD_YEAR}</>;
 }

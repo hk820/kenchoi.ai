@@ -24,7 +24,8 @@ export const metadata: Metadata = {
     default: "Ken Choi",
     template: "%s · Ken Choi",
   },
-  description: "Ken Choi — finance and AI professional in Hong Kong.",
+  description:
+    "Ken Choi builds forecasting, risk and AI agent tools for finance teams in Hong Kong, and teaches Agentic AI for FinTech at HKU SPACE.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

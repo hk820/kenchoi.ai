@@ -3,13 +3,19 @@ import { PageIntro } from "@/components/page-intro";
 import { ProjectCard } from "@/components/project-card";
 import { projects } from "@/lib/projects";
 
-export const metadata: Metadata = { title: "Projects" };
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "Finance and AI tools by Ken Choi: portfolio stress testing, portfolio review and rebalancing, and an AI agent guardrail lab.",
+};
 
 export default function ProjectsPage() {
   return (
     <>
       <PageIntro title="Projects">
-        A short note on the kinds of projects collected here.
+        Tools I&rsquo;ve built in Python for finance and AI. Each one is public
+        on GitHub, with tests for the maths and a plain statement of what it
+        leaves out.
       </PageIntro>
       <ul className="mt-12 grid gap-6">
         {projects.map((project) => (
