@@ -8,6 +8,7 @@
   --accent: #0f766e;
   --accent-soft: #e3f1ef;
   --on-accent: #ffffff;
+  --band: #f3f1ec;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,6 +20,7 @@
     --accent: #2dd4bf;
     --accent-soft: #123331;
     --on-accent: #0b1f1d;
+    --band: #1a1a18;
   }
 }
 
@@ -30,6 +32,7 @@
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
   --color-on-accent: var(--on-accent);
+  --color-band: var(--band);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-serif: var(--font-source-serif);
@@ -43,6 +46,12 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Full-width background behind a section that stays inside the page column.
+   The border image paints outside the box without affecting layout or scroll. */
+@utility band {
+  border-image: linear-gradient(var(--band) 0 0) fill 0 / / 0 100vw;
 }
 
 ::selection {
