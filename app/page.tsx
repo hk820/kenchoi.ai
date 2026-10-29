@@ -91,7 +91,7 @@ export default function Home() {
           </h1>
           <p className="mt-6 max-w-prose text-lg leading-8 text-muted">
             15+ years in data analytics, forecasting and machine learning,
-            most recently in Group Treasury at AIA. I build forecasting models,
+            most recently in Group Treasury at an insurer. I build forecasting models,
             risk tools and AI agents, and teach Agentic AI for FinTech at HKU
             SPACE.
           </p>

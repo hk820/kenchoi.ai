@@ -5,7 +5,7 @@ import { PageIntro } from "@/components/page-intro";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Ken Tsai works where finance meets data and AI: treasury analytics at AIA, AI and machine learning teaching at HKU SPACE, and research at The Hang Seng University of Hong Kong.",
+    "Ken Tsai works where finance meets data and AI: treasury analytics at an insurer, AI and machine learning teaching at HKU SPACE, and research at The Hang Seng University of Hong Kong.",
 };
 
 const link = "text-accent underline-offset-4 hover:underline";
@@ -38,7 +38,7 @@ export default function AboutPage() {
       <div className="mt-12 space-y-6 text-lg leading-8 text-muted">
         <p>
           From August 2021 to October 2026 I was a Senior Project Data Analyst
-          in AIA&rsquo;s Group Treasury. I supported the cash flow forecasting
+          in an insurer&rsquo;s Group Treasury. I supported the cash flow forecasting
           and optimal cash workstreams, and the delivery of the Liquidity
           Analytics Platform on Microsoft Azure, from gathering requirements
           through testing, go-live and hypercare.

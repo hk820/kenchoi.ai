@@ -30,7 +30,7 @@ const offers = [
     title: "Forecasting, risk and analytics tools",
     text: "Cash flow forecasting, stress testing, portfolio risk analysis and management dashboards in Python and Power BI, built to be explained and checked.",
     proof:
-      "Five years in AIA Group Treasury supporting forecasting and liquidity analytics, plus open projects on stress testing and portfolio review.",
+      "Five years in an insurer's Group Treasury supporting forecasting and liquidity analytics, plus open projects on stress testing and portfolio review.",
     link: { href: "/projects", label: "See the projects" },
   },
 ];

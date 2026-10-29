@@ -29,7 +29,7 @@ const highlights: {
 }[] = [
   {
     value: "5 years",
-    text: "in AIA Group Treasury, supporting machine-learning cash flow forecasting and liquidity analytics.",
+    text: "in an insurer's Group Treasury, supporting machine-learning cash flow forecasting and liquidity analytics.",
     strands: ["ml", "ds"],
     href: "/resume",
     cta: "See experience",
