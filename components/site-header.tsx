@@ -1,8 +1,6 @@
 import Link from "next/link";
 
 const navLinks = [
-  { href: "/projects", label: "Projects" },
-  { href: "/work-with-me", label: "Work with me" },
   { href: "/about", label: "About" },
   { href: "/resume", label: "Résumé" },
   { href: "/photos", label: "Photos" },
@@ -10,6 +8,8 @@ const navLinks = [
   { href: "/teaching", label: "Teaching" },
   { href: "/research", label: "Research" },
   { href: "/corporate-training", label: "Corp Training" },
+  { href: "/projects", label: "Projects" },
+  { href: "/work-with-me", label: "Work with me" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -19,12 +19,12 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-3xl flex-col gap-3 px-6 py-6">
         <Link
           href="/"
-          className="shrink-0 font-serif text-xl font-semibold tracking-tight whitespace-nowrap text-foreground"
+          className="shrink-0 font-serif text-2xl font-semibold tracking-tight whitespace-nowrap text-foreground"
         >
           Ken Tsai
         </Link>
         <nav aria-label="Main">
-          <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">
+          <ul className="flex flex-wrap gap-x-5 gap-y-3 text-base text-muted md:gap-x-6 md:text-lg">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
