@@ -7,22 +7,28 @@ import { corporateTraining } from "./resume";
 type ClientDetail = {
   sector: string;
   text: string;
+  /** Logo file name in public/logos, without the extension (.svg, .png, .webp or .jpg). */
+  logo: string;
 };
 
 const details: Record<string, ClientDetail> = {
   "The Hong Kong Jockey Club": {
+    logo: "hkjc",
     sector: "Racing, sports entertainment and charity",
     text: "AI training for business staff, delivered in 2024, 2025 and 2026.",
   },
   "Sony (HK) Limited": {
+    logo: "sony",
     sector: "Consumer electronics and entertainment",
     text: "AI workshops for staff across business units, focused on building an AI mindset and on practical, real-world business applications.",
   },
   "AEL Engineering Limited": {
+    logo: "ael",
     sector: "Engineering",
     text: "AI training for business staff, delivered in 2024.",
   },
   "Chance Century Education and Training": {
+    logo: "ccet",
     sector: "Education and training",
     text: "AI training, delivered in 2026.",
   },
@@ -31,7 +37,7 @@ const details: Record<string, ClientDetail> = {
 export const clients = corporateTraining.map((c) => ({
   org: c.org,
   years: c.years.split(", "),
-  ...(details[c.org] ?? { sector: "", text: "" }),
+  ...(details[c.org] ?? { sector: "", text: "", logo: "" }),
 }));
 
 export const years = Array.from(new Set(clients.flatMap((c) => c.years))).sort();

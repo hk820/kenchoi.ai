@@ -161,6 +161,14 @@ body {
   to { width: 100%; }
 }
 .kc-progress { animation: kc-progress linear both; }
+
+/* Corp Training page: client logos scroll in a loop; hover pauses them. */
+@keyframes kc-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 0.5rem)); }
+}
+.kc-marquee { width: max-content; animation: kc-marquee 24s linear infinite; }
+.kc-marquee-wrap:hover .kc-marquee { animation-play-state: paused; }
 .kc-shine::after {
   content: "";
   position: absolute;
@@ -180,4 +188,7 @@ body {
   .kc-count { animation: none; }
   .kc-shine::after { display: none; }
   .kc-play-ring, .kc-progress { display: none; }
+  .kc-marquee { animation: none; width: auto; }
+  .kc-marquee > ul:first-child { flex-wrap: wrap; justify-content: center; }
+  .kc-marquee-dup { display: none; }
 }

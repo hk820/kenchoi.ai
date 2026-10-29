@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { LogoStrip } from "@/components/logo-strip";
 import { PageIntro } from "@/components/page-intro";
 import { TrainingTimeline } from "@/components/training-timeline";
 import { approach, clients, years } from "@/lib/training";
@@ -32,6 +33,17 @@ export default function CorporateTrainingPage() {
           their own work, safely and with confidence.
         </PageIntro>
       </div>
+
+      <section
+        aria-label="Organisations I have trained"
+        className="kc-fade mt-10"
+        style={{ animationDelay: "60ms" }}
+      >
+        <p className="mb-4 font-mono text-xs font-medium tracking-widest text-accent uppercase">
+          Organisations I have trained
+        </p>
+        <LogoStrip clients={clients.map(({ org, logo }) => ({ org, logo }))} />
+      </section>
 
       <ul
         className="kc-fade mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4"
