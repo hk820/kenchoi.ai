@@ -192,6 +192,9 @@ export default function TeachingPage() {
             </li>
           ))}
         </ul>
+        <Link href="/corporate-training" className={`mt-5 inline-block text-sm ${link}`}>
+          More about my corporate training →
+        </Link>
       </section>
 
       <section className="mt-14 rounded-2xl bg-accent-soft p-6 sm:p-8">

@@ -9,6 +9,7 @@ const navLinks = [
   { href: "/youtube", label: "YouTube" },
   { href: "/teaching", label: "Teaching" },
   { href: "/research", label: "Research" },
+  { href: "/corporate-training", label: "Corp Training" },
   { href: "/contact", label: "Contact" },
 ];
 

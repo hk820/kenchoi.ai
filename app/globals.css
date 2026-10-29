@@ -154,6 +154,13 @@ body {
   100% { transform: scale(1.9); opacity: 0; }
 }
 .kc-play-ring { animation: kc-play-ring 1.8s ease-out infinite; }
+
+/* Corp Training page: a bar fills under the highlighted year. */
+@keyframes kc-progress {
+  from { width: 0; }
+  to { width: 100%; }
+}
+.kc-progress { animation: kc-progress linear both; }
 .kc-shine::after {
   content: "";
   position: absolute;
@@ -172,5 +179,5 @@ body {
   .kc-travel, .kc-travel.kc-treat { animation: none; }
   .kc-count { animation: none; }
   .kc-shine::after { display: none; }
-  .kc-play-ring { display: none; }
+  .kc-play-ring, .kc-progress { display: none; }
 }

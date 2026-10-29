@@ -195,6 +195,9 @@ export default function ResumePage() {
             </li>
           ))}
         </ul>
+        <Link href="/corporate-training" className={`mt-5 inline-block text-sm ${link}`}>
+          More about my corporate training →
+        </Link>
       </Section>
 
       <Section title="Selected projects">

@@ -52,7 +52,7 @@ const services = [
   {
     title: "AI training for business teams",
     text: "Hands-on AI and agentic AI training, delivered for The Hong Kong Jockey Club, Sony (HK) and others.",
-    links: [{ href: "/work-with-me", label: "Training and engagements" }],
+    links: [{ href: "/corporate-training", label: "Training clients" }],
   },
 ];
 
