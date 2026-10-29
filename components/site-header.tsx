@@ -6,6 +6,7 @@ const navLinks = [
   { href: "/about", label: "About" },
   { href: "/resume", label: "Résumé" },
   { href: "/photos", label: "Photos" },
+  { href: "/youtube", label: "YouTube" },
   { href: "/teaching", label: "Teaching" },
   { href: "/research", label: "Research" },
   { href: "/contact", label: "Contact" },
@@ -14,7 +15,7 @@ const navLinks = [
 export function SiteHeader() {
   return (
     <header className="border-b border-line">
-      <div className="mx-auto flex max-w-3xl flex-col gap-3 px-6 py-6 md:flex-row md:items-center md:justify-between">
+      <div className="mx-auto flex max-w-3xl flex-col gap-3 px-6 py-6">
         <Link
           href="/"
           className="shrink-0 font-serif text-xl font-semibold tracking-tight whitespace-nowrap text-foreground"

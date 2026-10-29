@@ -172,6 +172,9 @@ export default function ResumePage() {
             </li>
           ))}
         </ul>
+        <Link href="/youtube" className={`mt-5 inline-block text-sm ${link}`}>
+          Watch the talks on this site →
+        </Link>
       </Section>
 
       <Section title="Corporate AI training">

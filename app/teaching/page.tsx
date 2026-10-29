@@ -161,6 +161,9 @@ export default function TeachingPage() {
             </li>
           ))}
         </ol>
+        <Link href="/youtube" className={`mt-6 inline-block text-sm ${link}`}>
+          Watch all three on the YouTube page →
+        </Link>
       </section>
 
       <section className="mt-14">

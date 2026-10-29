@@ -147,6 +147,13 @@ body {
   45%, 100% { transform: translateX(120%); }
 }
 .kc-shine { position: relative; overflow: hidden; }
+
+/* YouTube page: rings ripple out from the play button. */
+@keyframes kc-play-ring {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+.kc-play-ring { animation: kc-play-ring 1.8s ease-out infinite; }
 .kc-shine::after {
   content: "";
   position: absolute;
@@ -165,4 +172,5 @@ body {
   .kc-travel, .kc-travel.kc-treat { animation: none; }
   .kc-count { animation: none; }
   .kc-shine::after { display: none; }
+  .kc-play-ring { display: none; }
 }
