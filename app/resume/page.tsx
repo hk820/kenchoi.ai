@@ -147,6 +147,9 @@ export default function ResumePage() {
             </li>
           ))}
         </ul>
+        <Link href="/teaching" className={`mt-5 inline-block text-sm ${link}`}>
+          More about my teaching →
+        </Link>
       </Section>
 
       <Section title="Public talks at HKU SPACE">

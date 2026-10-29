@@ -6,6 +6,7 @@ const navLinks = [
   { href: "/about", label: "About" },
   { href: "/resume", label: "Résumé" },
   { href: "/photos", label: "Photos" },
+  { href: "/teaching", label: "Teaching" },
   { href: "/research", label: "Research" },
   { href: "/contact", label: "Contact" },
 ];
@@ -13,10 +14,10 @@ const navLinks = [
 export function SiteHeader() {
   return (
     <header className="border-b border-line">
-      <div className="mx-auto flex max-w-3xl flex-col gap-3 px-6 py-6 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto flex max-w-3xl flex-col gap-3 px-6 py-6 md:flex-row md:items-center md:justify-between">
         <Link
           href="/"
-          className="font-serif text-xl font-semibold tracking-tight text-foreground"
+          className="shrink-0 font-serif text-xl font-semibold tracking-tight whitespace-nowrap text-foreground"
         >
           Ken Tsai
         </Link>

@@ -44,7 +44,11 @@ export default function AboutPage() {
           through testing, go-live and hypercare.
         </p>
         <p>
-          Since 2023 I have taught at HKU SPACE, where I design and deliver 16
+          Since 2023 I have{" "}
+          <Link href="/teaching" className={link}>
+            taught at HKU SPACE
+          </Link>
+          , where I design and deliver 16
           postgraduate and professional modules on AI, machine learning, big
           data and FinTech, including{" "}
           <em>Agentic AI for FinTech and Business Applications</em>. I received

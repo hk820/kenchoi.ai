@@ -9,6 +9,7 @@
   --accent-soft: #e3f1ef;
   --on-accent: #ffffff;
   --band: #f3f1ec;
+  --shine: rgb(255 255 255 / 0.7);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,6 +22,7 @@
     --accent-soft: #123331;
     --on-accent: #0b1f1d;
     --band: #1a1a18;
+    --shine: rgb(255 255 255 / 0.1);
   }
 }
 
@@ -124,10 +126,43 @@ body {
 }
 .kc-status-ping { animation: kc-status-ping 1.6s ease-out infinite; }
 
+/* Teaching page: numbers count up from 0, and a light sweeps across the award. */
+@property --kc-n {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+@keyframes kc-count {
+  from { --kc-n: 0; }
+  to { --kc-n: var(--kc-target); }
+}
+.kc-count {
+  --kc-n: var(--kc-target);
+  counter-reset: kc-n var(--kc-n);
+  animation: kc-count 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.3s both;
+}
+.kc-count::after { content: counter(kc-n); }
+@keyframes kc-shine {
+  0% { transform: translateX(-120%); }
+  45%, 100% { transform: translateX(120%); }
+}
+.kc-shine { position: relative; overflow: hidden; }
+.kc-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 35%, var(--shine) 50%, transparent 65%);
+  animation: kc-shine 4s ease-in-out 0.8s infinite;
+  transform: translateX(-120%);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .kc-drift-1, .kc-drift-2, .kc-drift-3, .kc-pulse, .kc-fade {
     animation: none;
   }
   .kc-ripple, .kc-cross, .kc-status-ping { display: none; }
   .kc-travel, .kc-travel.kc-treat { animation: none; }
+  .kc-count { animation: none; }
+  .kc-shine::after { display: none; }
 }

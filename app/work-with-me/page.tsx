@@ -14,7 +14,7 @@ const offers = [
     text: "Hands-on AI and agentic AI training that gets business staff using AI in their own work, designed around your team's tasks.",
     proof:
       "Delivered for The Hong Kong Jockey Club (2024–2026), Sony (HK) Limited (2025–2026), AEL Engineering Limited (2024) and Chance Century Education and Training (2026).",
-    link: { href: "/resume", label: "Teaching and training record" },
+    link: { href: "/teaching", label: "Teaching and training record" },
   },
   {
     title: "AI agent prototypes with guardrails",
