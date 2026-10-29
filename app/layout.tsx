@@ -21,11 +21,11 @@ const sourceSerif = Source_Serif_4({
 
 export const metadata: Metadata = {
   title: {
-    default: "Ken Choi",
-    template: "%s · Ken Choi",
+    default: "Ken Tsai",
+    template: "%s · Ken Tsai",
   },
   description:
-    "Ken Choi builds forecasting, risk and AI agent tools for finance teams in Hong Kong, and teaches Agentic AI for FinTech at HKU SPACE.",
+    "Ken Tsai builds forecasting, risk and AI agent tools for finance teams in Hong Kong, and teaches Agentic AI for FinTech at HKU SPACE.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

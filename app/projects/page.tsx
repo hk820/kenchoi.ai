@@ -6,7 +6,7 @@ import { projects } from "@/lib/projects";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Finance and AI tools by Ken Choi: portfolio stress testing, portfolio review and rebalancing, and an AI agent guardrail lab.",
+    "Finance and AI tools by Ken Tsai: portfolio stress testing, portfolio review and rebalancing, and an AI agent guardrail lab.",
 };
 
 export default function ProjectsPage() {

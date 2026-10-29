@@ -1,6 +1,6 @@
 # kenchoi.ai
 
-Personal website of Ken Choi. Built with Next.js (App Router), TypeScript and Tailwind CSS.
+Personal website of Ken Tsai. Built with Next.js (App Router), TypeScript and Tailwind CSS.
 
 ## Development
 

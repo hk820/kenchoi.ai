@@ -76,7 +76,7 @@ export default function Home() {
           <div className="relative mb-8 aspect-[4/5] w-28 overflow-hidden rounded-2xl border border-line sm:order-last sm:mb-0 sm:w-full">
             <Image
               src={photoSrc}
-              alt="Ken Choi"
+              alt="Ken Tsai"
               fill
               preload
               sizes="(min-width: 640px) 176px, 112px"

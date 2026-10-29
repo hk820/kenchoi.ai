@@ -17,7 +17,7 @@ export function SiteHeader() {
           href="/"
           className="font-serif text-xl font-semibold tracking-tight text-foreground"
         >
-          Ken Choi
+          Ken Tsai
         </Link>
         <nav aria-label="Main">
           <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">

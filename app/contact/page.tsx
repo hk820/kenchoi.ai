@@ -5,7 +5,7 @@ import { contact } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Ken Choi about data and AI roles in financial services, consulting, or corporate AI training in Hong Kong.",
+    "Contact Ken Tsai about data and AI roles in financial services, consulting, or corporate AI training in Hong Kong.",
 };
 
 const channels = [

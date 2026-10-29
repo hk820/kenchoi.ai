@@ -5,7 +5,7 @@ import { photos } from "@/lib/photos";
 
 export const metadata: Metadata = {
   title: "Photos",
-  description: "Photos of Ken Choi teaching, speaking and running AI training in Hong Kong.",
+  description: "Photos of Ken Tsai teaching, speaking and running AI training in Hong Kong.",
 };
 
 export default function PhotosPage() {
