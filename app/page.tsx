@@ -70,16 +70,16 @@ export default function Home() {
   return (
     <>
       <section
-        className={`pb-16 sm:pb-24 ${hasPhoto ? "sm:grid sm:grid-cols-[1fr_11rem] sm:items-center sm:gap-10" : ""}`}
+        className={`pb-16 sm:pb-24 ${hasPhoto ? "sm:grid sm:grid-cols-[1fr_13rem] sm:items-center sm:gap-10" : ""}`}
       >
         {hasPhoto && (
-          <div className="relative mb-8 aspect-[4/5] w-28 overflow-hidden rounded-2xl border border-line sm:order-last sm:mb-0 sm:w-full">
+          <div className="relative mb-8 aspect-[4/5] w-36 overflow-hidden rounded-2xl border border-line shadow-sm sm:order-last sm:mb-0 sm:w-full">
             <Image
               src={photoSrc}
               alt="Ken Tsai"
               fill
               preload
-              sizes="(min-width: 640px) 176px, 112px"
+              sizes="(min-width: 640px) 208px, 144px"
               className="object-cover"
             />
           </div>
