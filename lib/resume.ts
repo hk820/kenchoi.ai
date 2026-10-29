@@ -105,8 +105,8 @@ export const corporateTraining: { org: string; years: string }[] = [
 ];
 
 export const research = {
-  title:
-    "Accounting Standards and Risk Trade-offs: Evidence from the IFRS 17 Adoption",
+  title: "The Effect of IFRS 17 on Risk Trade-offs in the Insurance Industry",
+  status: "Under review",
   detail:
     "Co-authored with a faculty professor, The Hang Seng University of Hong Kong. Under review.",
 };

@@ -66,7 +66,7 @@ const highlights: {
     value: "IFRS 17",
     text: "co-authored research using statistical models and hypothesis testing, now under review.",
     strands: ["ds"],
-    href: "/resume",
+    href: "/research",
     cta: "See research",
   },
 ];

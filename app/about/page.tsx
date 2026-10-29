@@ -54,8 +54,11 @@ export default function AboutPage() {
         </p>
         <p>
           At The Hang Seng University of Hong Kong I am a part-time Senior
-          Research Analyst. My co-authored paper on IFRS 17 adoption and
-          insurers&rsquo; risk trade-offs is under review.
+          Research Analyst. My co-authored{" "}
+          <Link href="/research" className={link}>
+            paper on IFRS 17 adoption and insurers&rsquo; risk trade-offs
+          </Link>{" "}
+          is under review.
         </p>
         <p>
           The{" "}

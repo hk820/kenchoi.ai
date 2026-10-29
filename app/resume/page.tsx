@@ -207,6 +207,9 @@ export default function ResumePage() {
       <Section title="Research">
         <p className="font-medium text-foreground italic">{research.title}</p>
         <p className="mt-1 leading-7 text-muted">{research.detail}</p>
+        <Link href="/research" className={`mt-2 inline-block text-sm ${link}`}>
+          About the study →
+        </Link>
       </Section>
 
       <Section title="Education and qualifications">

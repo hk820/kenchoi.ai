@@ -96,9 +96,38 @@ body {
 .kc-ripple { animation: kc-ripple 0.9s ease-out infinite; }
 .kc-fade { animation: kc-fade 0.5s ease-out both; }
 
+/* Research page: a dot travels along each timeline and, for adopters,
+   turns teal as it crosses 2023 with a ring at the crossing point. */
+@keyframes kc-travel {
+  from { transform: translateX(0); }
+  to { transform: translateX(var(--kc-dist, 560px)); }
+}
+@keyframes kc-treat {
+  0%, 49.9% { fill: var(--muted); }
+  50%, 100% { fill: var(--accent); }
+}
+@keyframes kc-cross {
+  0%, 48% { transform: scale(1); opacity: 0; }
+  50% { transform: scale(1); opacity: 0.9; }
+  70%, 100% { transform: scale(3.2); opacity: 0; }
+}
+@keyframes kc-status-ping {
+  0% { transform: scale(1); opacity: 0.7; }
+  80%, 100% { transform: scale(2.6); opacity: 0; }
+}
+.kc-travel { animation: kc-travel 6s linear infinite; }
+.kc-travel.kc-treat { animation: kc-travel 6s linear infinite, kc-treat 6s linear infinite; }
+.kc-cross {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: kc-cross 6s linear infinite;
+}
+.kc-status-ping { animation: kc-status-ping 1.6s ease-out infinite; }
+
 @media (prefers-reduced-motion: reduce) {
   .kc-drift-1, .kc-drift-2, .kc-drift-3, .kc-pulse, .kc-fade {
     animation: none;
   }
-  .kc-ripple { display: none; }
+  .kc-ripple, .kc-cross, .kc-status-ping { display: none; }
+  .kc-travel, .kc-travel.kc-treat { animation: none; }
 }
