@@ -75,7 +75,7 @@ export default function Home() {
       {/* Hero: wider than the page column. */}
       <section className="relative isolate left-1/2 w-[min(72rem,calc(100vw-3rem))] -translate-x-1/2 pb-20 sm:pb-28">
         <FanChart
-          seed="Ken Tsai"
+          seed="Ken Choi"
           nowShare={0.42}
           className="kc-fan-mask absolute -top-24 -right-40 -z-10 w-[40rem] sm:-top-28 md:-top-10 md:-right-64 md:w-[64rem]"
         />
@@ -90,7 +90,7 @@ export default function Home() {
             <div className="relative mb-10 aspect-[4/5] w-40 overflow-hidden rounded-[1.75rem] border border-line ring-1 ring-accent/40 ring-offset-8 ring-offset-background sm:w-48 md:order-last md:mb-0 md:w-full">
               <Image
                 src={photoSrc}
-                alt="Ken Tsai"
+                alt="Ken Choi"
                 fill
                 preload
                 sizes="(min-width: 1024px) 304px, (min-width: 768px) 256px, 192px"

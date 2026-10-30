@@ -24,7 +24,7 @@ export function SiteHeader() {
             href="/"
             className="shrink-0 font-serif text-2xl font-semibold tracking-tight whitespace-nowrap text-foreground"
           >
-            Ken Tsai
+            Ken Choi
           </Link>
           <ThemeToggle />
         </div>

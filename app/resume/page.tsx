@@ -25,7 +25,7 @@ import {
 export const metadata: Metadata = {
   title: "Résumé",
   description:
-    "Ken Tsai's résumé: AIA Group Treasury, HKU SPACE lecturer in AI and machine learning, corporate AI training, research and qualifications.",
+    "Ken Choi's résumé: AIA Group Treasury, HKU SPACE lecturer in AI and machine learning, corporate AI training, research and qualifications.",
 };
 
 const link = "text-accent underline-offset-4 hover:underline";

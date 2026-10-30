@@ -6,7 +6,7 @@ import { PageIntro } from "@/components/page-intro";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Ken Tsai works where finance meets data and AI: treasury analytics at an insurer, AI and machine learning teaching at HKU SPACE, and research at The Hang Seng University of Hong Kong.",
+    "Ken Choi works where finance meets data and AI: treasury analytics at an insurer, AI and machine learning teaching at HKU SPACE, and research at The Hang Seng University of Hong Kong.",
 };
 
 const link = "text-accent underline-offset-4 hover:underline";

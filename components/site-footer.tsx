@@ -10,7 +10,7 @@ export function SiteFooter() {
     <footer className="border-t border-line print:hidden">
       <div className="mx-auto flex max-w-3xl flex-col gap-3 px-6 py-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
         <p>
-          © <CopyrightYear /> Ken Tsai
+          © <CopyrightYear /> Ken Choi
         </p>
         <ul className="flex gap-5">
           {socialLinks.map((link) => (

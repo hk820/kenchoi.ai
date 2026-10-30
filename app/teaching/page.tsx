@@ -8,7 +8,7 @@ import { labs } from "@/lib/teaching";
 export const metadata: Metadata = {
   title: "Teaching",
   description:
-    "Ken Tsai teaches AI, machine learning, big data and FinTech at HKU SPACE, gives public talks and runs corporate AI training in Hong Kong.",
+    "Ken Choi teaches AI, machine learning, big data and FinTech at HKU SPACE, gives public talks and runs corporate AI training in Hong Kong.",
 };
 
 const sectionHeading =

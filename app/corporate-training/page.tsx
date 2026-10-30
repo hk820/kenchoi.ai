@@ -8,7 +8,7 @@ import { approach, clients, years } from "@/lib/training";
 export const metadata: Metadata = {
   title: "Corp Training",
   description:
-    "Corporate AI training by Ken Tsai for The Hong Kong Jockey Club, Sony (HK), AEL Engineering and Chance Century Education and Training.",
+    "Corporate AI training by Ken Choi for The Hong Kong Jockey Club, Sony (HK), AEL Engineering and Chance Century Education and Training.",
 };
 
 const sectionHeading =

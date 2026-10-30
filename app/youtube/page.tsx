@@ -8,7 +8,7 @@ import { channel, videoDetails } from "@/lib/videos";
 export const metadata: Metadata = {
   title: "YouTube",
   description:
-    "Ken Tsai's public talks for HKU SPACE on generative AI, Web3, AI agents and the future of finance, on YouTube.",
+    "Ken Choi's public talks for HKU SPACE on generative AI, Web3, AI agents and the future of finance, on YouTube.",
 };
 
 const facts = [

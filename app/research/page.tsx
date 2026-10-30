@@ -7,7 +7,7 @@ import { research } from "@/lib/resume";
 export const metadata: Metadata = {
   title: "Research",
   description:
-    "Ken Tsai's research on IFRS 17 adoption and insurers' risk trade-offs, with The Hang Seng University of Hong Kong.",
+    "Ken Choi's research on IFRS 17 adoption and insurers' risk trade-offs, with The Hang Seng University of Hong Kong.",
 };
 
 const sectionHeading =
