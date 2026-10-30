@@ -19,7 +19,7 @@ export type Role = {
 export const experience: Role[] = [
   {
     title: "External Consultant – Senior Project Data Analyst, Group Treasury",
-    org: "AIA Group Limited seconded by RGP Limited",
+    org: "AIA Group Limited",
     dates: "Aug 2021 – Oct 2026",
     points: [
       {
@@ -130,7 +130,6 @@ export const certifications = [
 
 export const awards: { name: string; from: string }[] = [
   { name: "Outstanding Teacher Award 2025–2026", from: "HKU SPACE" },
-  { name: "Consultant of the Quarter, Q2 2026", from: "RGP Limited" },
 ];
 
 export const skills: { area: string; items: string }[] = [
