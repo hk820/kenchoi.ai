@@ -18,17 +18,13 @@ export type Role = {
 
 export const experience: Role[] = [
   {
-    title: "Senior Project Data Analyst, Group Treasury",
-    org: "AIA Group Limited",
+    title: "External Consultant – Senior Project Data Analyst, Group Treasury",
+    org: "AIA Group Limited seconded by RGP Limited",
     dates: "Aug 2021 – Oct 2026",
     points: [
       {
         label: "Platform delivery (LAP)",
         text: "Supported requirements and testing for all modules of the Liquidity Analytics Platform, live across multiple business units: bank balance updates, cash flow forecasting, OCM, PCFM, LQA, dashboards and a user-activity audit log. Covered user requirement gathering, functional specifications, SIT, UAT, go-live and hypercare in the Project Taurus team.",
-      },
-      {
-        label: "Forecasting and reporting (PCFM, OCM)",
-        text: "Supported machine-learning cash flow forecasting in production, Power BI and Python dashboards for management, and the automation of manual reporting.",
       },
     ],
   },
@@ -51,7 +47,7 @@ export const partTime: Role[] = [
     dates: "Jul 2023 – Present",
     points: [
       {
-        text: "Applied quantitative research using statistical models and hypothesis testing (see Research).",
+        text: "Applied quantitative research using statistical models and hypothesis testing (see Publication).",
       },
     ],
   },
@@ -157,5 +153,10 @@ export const skills: { area: string; items: string }[] = [
     area: "Executive insights and visualisation",
     items:
       "Power BI dashboards and KPI frameworks for management; Python and Chart.js web dashboards and data visualisations; translating complex metrics for senior stakeholders",
+  },
+  {
+    area: "Automation",
+    items:
+      "Python automation of manual reporting and recurring data workflows, from extraction, validation and reconciliation to finished reports; process redesign and automation in a finance transformation programme; AI agents that automate multi-step tasks through tool calling, with human approval for sensitive actions; automated adversarial and integration testing (Python unittest)",
   },
 ];

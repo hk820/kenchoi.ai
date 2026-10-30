@@ -27,6 +27,10 @@ export const metadata: Metadata = {
 
 const link = "text-accent underline-offset-4 hover:underline";
 
+const talksNewestFirst = [...talks].sort(
+  (a, b) => Number(b.year) - Number(a.year),
+);
+
 function Section({
   title,
   children,
@@ -152,9 +156,9 @@ export default function ResumePage() {
         </Link>
       </Section>
 
-      <Section title="Public talks at HKU SPACE">
+      <Section title="Public speaking">
         <ul className="space-y-5">
-          {talks.map((talk) => (
+          {talksNewestFirst.map((talk) => (
             <li key={talk.url}>
               <p className="text-sm text-muted tabular-nums">{talk.year}</p>
               <p lang="zh-HK" className="mt-1 font-medium text-foreground">
@@ -213,12 +217,34 @@ export default function ResumePage() {
         </ul>
       </Section>
 
-      <Section title="Research">
+      <Section title="Publication">
         <p className="font-medium text-foreground italic">{research.title}</p>
         <p className="mt-1 leading-7 text-muted">{research.detail}</p>
         <Link href="/research" className={`mt-2 inline-block text-sm ${link}`}>
           About the study →
         </Link>
+      </Section>
+
+      <Section title="Awards and recognition">
+        <ul className="space-y-2">
+          {awards.map((a) => (
+            <li key={a.name} className="leading-7">
+              <span className="font-medium text-foreground">{a.name}</span>
+              <span className="text-muted"> · {a.from}</span>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Section title="Skills">
+        <dl className="space-y-5">
+          {skills.map((s) => (
+            <div key={s.area}>
+              <dt className="font-medium text-foreground">{s.area}</dt>
+              <dd className="mt-1 text-sm leading-6 text-muted">{s.items}</dd>
+            </div>
+          ))}
+        </dl>
       </Section>
 
       <Section title="Education and qualifications">
@@ -245,28 +271,6 @@ export default function ResumePage() {
             </li>
           ))}
         </ul>
-      </Section>
-
-      <Section title="Awards and recognition">
-        <ul className="space-y-2">
-          {awards.map((a) => (
-            <li key={a.name} className="leading-7">
-              <span className="font-medium text-foreground">{a.name}</span>
-              <span className="text-muted"> · {a.from}</span>
-            </li>
-          ))}
-        </ul>
-      </Section>
-
-      <Section title="Skills">
-        <dl className="space-y-5">
-          {skills.map((s) => (
-            <div key={s.area}>
-              <dt className="font-medium text-foreground">{s.area}</dt>
-              <dd className="mt-1 text-sm leading-6 text-muted">{s.items}</dd>
-            </div>
-          ))}
-        </dl>
       </Section>
     </>
   );
