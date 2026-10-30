@@ -32,13 +32,26 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      data-theme="dark"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${sourceSerif.variable} h-full antialiased`}
     >
+      <head>
+        {/* Applies a saved light/dark choice before the page is painted. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`,
+          }}
+        />
+      </head>
       <body className="flex min-h-full flex-col">
         <SiteHeader />
-        <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-16 sm:py-24">
-          {children}
-        </main>
+        {/* Clips decorations that reach past the page edge, without a sideways scroll. */}
+        <div className="flex-1 overflow-x-clip">
+          <main className="mx-auto w-full max-w-3xl px-6 py-16 sm:py-24">
+            {children}
+          </main>
+        </div>
         <SiteFooter />
       </body>
     </html>

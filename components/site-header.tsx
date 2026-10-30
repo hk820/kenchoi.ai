@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { NavLinks } from "./nav-links";
+import { ThemeToggle } from "./theme-toggle";
 
 const navLinks = [
   { href: "/about", label: "About" },
@@ -15,27 +17,19 @@ const navLinks = [
 
 export function SiteHeader() {
   return (
-    <header className="border-b border-line">
+    <header className="relative z-10 border-b border-line bg-background print:hidden">
       <div className="mx-auto flex max-w-3xl flex-col gap-3 px-6 py-6">
-        <Link
-          href="/"
-          className="shrink-0 font-serif text-2xl font-semibold tracking-tight whitespace-nowrap text-foreground"
-        >
-          Ken Tsai
-        </Link>
+        <div className="flex items-center justify-between gap-4">
+          <Link
+            href="/"
+            className="shrink-0 font-serif text-2xl font-semibold tracking-tight whitespace-nowrap text-foreground"
+          >
+            Ken Tsai
+          </Link>
+          <ThemeToggle />
+        </div>
         <nav aria-label="Main">
-          <ul className="flex flex-wrap gap-x-5 gap-y-3 text-base text-muted md:gap-x-6 md:text-lg">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="transition-colors hover:text-accent"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <NavLinks links={navLinks} />
         </nav>
       </div>
     </header>

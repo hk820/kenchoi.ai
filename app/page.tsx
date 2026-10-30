@@ -2,7 +2,10 @@ import fs from "node:fs";
 import path from "node:path";
 import Image from "next/image";
 import Link from "next/link";
+import { FanChart } from "@/components/fan-chart";
 import { StrandsDiagram } from "@/components/strands-diagram";
+
+const roles = ["Machine learning engineer", "Data scientist", "Agentic AI developer"];
 
 const photoSrc = "/images/ken.jpg";
 const stressTestPreviewSrc = "/images/stress-test-preview.png";
@@ -69,39 +72,63 @@ export default function Home() {
 
   return (
     <>
-      <section
-        className={`pb-16 sm:pb-24 ${hasPhoto ? "sm:grid sm:grid-cols-[1fr_13rem] sm:items-center sm:gap-10" : ""}`}
-      >
-        {hasPhoto && (
-          <div className="relative mb-8 aspect-[4/5] w-36 overflow-hidden rounded-2xl border border-line shadow-sm sm:order-last sm:mb-0 sm:w-full">
-            <Image
-              src={photoSrc}
-              alt="Ken Tsai"
-              fill
-              preload
-              sizes="(min-width: 640px) 208px, 144px"
-              className="object-cover"
-            />
-          </div>
-        )}
-        <div>
-          <h1 className="font-serif text-3xl leading-tight font-semibold tracking-tight text-balance text-foreground sm:text-4xl sm:leading-tight">
-            Practical analytics and AI tools for finance teams, built by
-            someone who has worked inside one.
-          </h1>
-          <p className="mt-6 max-w-prose text-lg leading-8 text-muted">
-            15+ years in data analytics, forecasting and machine learning,
-            most recently in Group Treasury at an insurer. I build forecasting models,
-            risk tools and AI agents, and teach Agentic AI for FinTech at HKU
-            SPACE.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Link href="/projects" className={primaryButton}>
-              View projects
-            </Link>
-            <Link href="/work-with-me" className={outlineButton}>
-              Work with me
-            </Link>
+      {/* Hero: wider than the page column. */}
+      <section className="relative isolate left-1/2 w-[min(72rem,calc(100vw-3rem))] -translate-x-1/2 pb-20 sm:pb-28">
+        <FanChart
+          seed="Ken Tsai"
+          nowShare={0.42}
+          className="kc-fan-mask absolute -top-24 -right-40 -z-10 w-[40rem] sm:-top-28 md:-top-10 md:-right-64 md:w-[64rem]"
+        />
+        <div
+          className={
+            hasPhoto
+              ? "md:grid md:grid-cols-[1fr_16rem] md:items-center md:gap-14 lg:grid-cols-[1fr_19rem]"
+              : ""
+          }
+        >
+          {hasPhoto && (
+            <div className="relative mb-10 aspect-[4/5] w-40 overflow-hidden rounded-[1.75rem] border border-line ring-1 ring-accent/40 ring-offset-8 ring-offset-background sm:w-48 md:order-last md:mb-0 md:w-full">
+              <Image
+                src={photoSrc}
+                alt="Ken Tsai"
+                fill
+                preload
+                sizes="(min-width: 1024px) 304px, (min-width: 768px) 256px, 192px"
+                className="object-cover"
+              />
+            </div>
+          )}
+          <div>
+            <p className="flex flex-wrap gap-x-2.5 gap-y-1 text-base text-muted sm:text-lg">
+              {roles.map((role, i) => (
+                <span key={role} className="whitespace-nowrap">
+                  {role}
+                  {i < roles.length - 1 && (
+                    <span aria-hidden="true" className="pl-2.5 text-accent">
+                      /
+                    </span>
+                  )}
+                </span>
+              ))}
+            </p>
+            <h1 className="mt-5 font-serif text-4xl leading-[1.08] font-semibold tracking-tight text-balance text-foreground sm:text-5xl sm:leading-[1.05] lg:text-[4rem]">
+              Practical analytics and AI tools for finance teams, built by
+              someone who has worked inside one.
+            </h1>
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-muted sm:text-xl sm:leading-9">
+              15+ years in data analytics, forecasting and machine learning,
+              most recently in Group Treasury at an insurer. I build
+              forecasting models, risk tools and AI agents, and teach Agentic
+              AI for FinTech at HKU SPACE.
+            </p>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Link href="/projects" className={`${primaryButton} sm:px-6 sm:py-3.5 sm:text-base`}>
+                View projects
+              </Link>
+              <Link href="/work-with-me" className={`${outlineButton} bg-background sm:px-6 sm:py-3.5 sm:text-base`}>
+                Work with me
+              </Link>
+            </div>
           </div>
         </div>
       </section>

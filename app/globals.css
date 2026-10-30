@@ -1,29 +1,35 @@
 @import "tailwindcss";
 
-:root {
+/* Colours. Dark (black + amber) is the default for every visitor; the
+   sun/moon button in the header switches to light and remembers it
+   (see the script in app/layout.tsx). */
+:root,
+[data-theme="dark"] {
+  --background: #000000;
+  --foreground: #f3eee3;
+  --muted: #a8a194;
+  --line: #2b2822;
+  --accent: #ffb224;
+  --accent-soft: #241a06;
+  --on-accent: #140e00;
+  --band: #0e0d0b;
+  --alert: #ff6b57;
+  --shine: rgb(255 255 255 / 0.08);
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
   --background: #fbfaf7;
   --foreground: #1c1b19;
   --muted: #5c5a55;
   --line: #e6e3dc;
-  --accent: #0f766e;
-  --accent-soft: #e3f1ef;
+  --accent: #9a5b06;
+  --accent-soft: #f8ecd6;
   --on-accent: #ffffff;
   --band: #f3f1ec;
+  --alert: #c2410c;
   --shine: rgb(255 255 255 / 0.7);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #121211;
-    --foreground: #ecebe7;
-    --muted: #a3a19b;
-    --line: #2a2927;
-    --accent: #2dd4bf;
-    --accent-soft: #123331;
-    --on-accent: #0b1f1d;
-    --band: #1a1a18;
-    --shine: rgb(255 255 255 / 0.1);
-  }
+  color-scheme: light;
 }
 
 @theme inline {
@@ -35,19 +41,31 @@
   --color-accent-soft: var(--accent-soft);
   --color-on-accent: var(--on-accent);
   --color-band: var(--band);
+  --color-alert: var(--alert);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-serif: var(--font-source-serif);
-}
-
-html {
-  color-scheme: light dark;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Fades the forecast lines out on the left (where the title is) and at
+   the top and bottom edges. */
+.kc-fan-mask {
+  mask-image:
+    linear-gradient(to right, transparent, black 40%),
+    linear-gradient(to bottom, transparent, black 30%, black 70%, transparent);
+  mask-composite: intersect;
+}
+
+body,
+header,
+footer {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Full-width background behind a section that stays inside the page column.
@@ -179,10 +197,153 @@ body {
   transform: translateX(-120%);
 }
 
+/* Forecast lines behind page titles (components/fan-chart.tsx): the
+   history line draws in, the forecast band unfolds from "now", then the
+   band breathes and the grid scrolls left like a live chart. */
+@keyframes kc-draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes kc-unfold {
+  from { transform: scaleX(0); opacity: 0; }
+  to { transform: scaleX(1); opacity: 1; }
+}
+@keyframes kc-breathe {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.22); }
+}
+@keyframes kc-sway {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+@keyframes kc-grid {
+  from { transform: translateX(0); }
+  to { transform: translateX(-40px); }
+}
+.kc-draw { stroke-dasharray: 1; animation: kc-draw 1.8s cubic-bezier(0.3, 0.6, 0.2, 1) both; }
+.kc-unfold { transform-box: view-box; animation: kc-unfold 1.2s ease-out 1.4s both; }
+.kc-breathe { transform-box: view-box; animation: kc-breathe 7s ease-in-out 2.6s infinite; }
+.kc-sway { transform-box: view-box; animation: kc-sway 9s ease-in-out 2.6s infinite; }
+.kc-grid { animation: kc-grid 4s linear infinite; }
+
+/* Header: the amber bar slides to the tab you're on. */
+.kc-navbar {
+  transition:
+    transform 0.4s cubic-bezier(0.3, 0.7, 0.2, 1),
+    width 0.4s cubic-bezier(0.3, 0.7, 0.2, 1),
+    opacity 0.2s ease;
+}
+
+/* Header: sun shows on dark (switch to light), moon shows on light. */
+:root:not([data-theme="light"]) .kc-icon-moon,
+[data-theme="light"] .kc-icon-sun {
+  display: none;
+}
+@keyframes kc-spin-in {
+  from { transform: rotate(-90deg) scale(0.4); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+.kc-icon-sun, .kc-icon-moon { animation: kc-spin-in 0.45s ease-out both; }
+
+/* About page: a comet runs along the timeline and lights each year. */
+@keyframes kc-run-x {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+@keyframes kc-run-y {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+@keyframes kc-hit {
+  0% { background-color: var(--accent); transform: scale(1.7); }
+  12% { background-color: var(--accent); transform: scale(1); }
+  55%, 100% { background-color: var(--background); transform: scale(1); }
+}
+.kc-run-x { animation: kc-run-x 7s linear infinite; }
+.kc-run-y { animation: kc-run-y 7s linear infinite; }
+.kc-hit { animation: kc-hit 7s linear infinite; }
+
+/* Résumé: reading progress bar, set from scroll position. */
+.kc-read {
+  transform-origin: 0 50%;
+  transform: scaleX(var(--kc-read, 0));
+}
+
+/* Photos: each photo slowly zooms and pans. */
+@keyframes kc-kenburns-a {
+  from { transform: scale(1.02) translate(0, 0); }
+  to { transform: scale(1.14) translate(-2.5%, -1.5%); }
+}
+@keyframes kc-kenburns-b {
+  from { transform: scale(1.14) translate(2.5%, 1%); }
+  to { transform: scale(1.02) translate(0, 0); }
+}
+.kc-kenburns-a { animation: kc-kenburns-a 18s ease-in-out infinite alternate; }
+.kc-kenburns-b { animation: kc-kenburns-b 18s ease-in-out infinite alternate; }
+
+/* Projects: mini-charts (components/project-spark.tsx). */
+@keyframes kc-trace {
+  0% { stroke-dashoffset: 1; opacity: 1; }
+  60%, 88% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+@keyframes kc-pop {
+  0%, 100% { opacity: 0; transform: scale(0.4); }
+  6% { opacity: 1; transform: scale(1.5); }
+  14%, 40% { opacity: 1; transform: scale(1); }
+}
+@keyframes kc-rebal {
+  0%, 12% { transform: scaleY(1); }
+  42%, 62% { transform: scaleY(var(--kc-drift, 1)); }
+  80%, 100% { transform: scaleY(1); }
+}
+@keyframes kc-pass {
+  0% { transform: translateX(0); opacity: 0; }
+  10%, 88% { opacity: 1; }
+  100% { transform: translateX(var(--kc-dist, 150px)); opacity: 0; }
+}
+@keyframes kc-block {
+  0% { transform: translateX(0); opacity: 0; fill: var(--accent); }
+  10% { opacity: 1; }
+  55% { transform: translateX(var(--kc-stop, 90px)); fill: var(--accent); }
+  58%, 80% { transform: translateX(var(--kc-stop, 90px)); fill: var(--alert); opacity: 1; }
+  100% { transform: translateX(var(--kc-stop, 90px)); fill: var(--alert); opacity: 0; }
+}
+@keyframes kc-shield-hit {
+  0%, 54%, 84%, 100% { stroke: var(--accent); }
+  58%, 78% { stroke: var(--alert); }
+}
+.kc-trace { stroke-dasharray: 1; animation: kc-trace 5s ease-in-out infinite; }
+.kc-pop { transform-box: fill-box; transform-origin: center; animation: kc-pop 5s linear infinite; }
+.kc-rebal { transform-box: fill-box; transform-origin: 50% 100%; animation: kc-rebal 5s ease-in-out infinite; }
+.kc-pass { animation: kc-pass 3.6s linear infinite; }
+.kc-block { animation: kc-block 3.6s linear infinite; }
+.kc-shield-hit { animation: kc-shield-hit 3.6s linear infinite; }
+
+/* Work with me: small looping icons. */
+@keyframes kc-write {
+  0% { stroke-dashoffset: 1; opacity: 1; }
+  35%, 85% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+@keyframes kc-scan {
+  0%, 100% { transform: translateY(0); opacity: 0; }
+  10%, 90% { opacity: 1; }
+  50% { transform: translateY(22px); }
+}
+.kc-write { stroke-dasharray: 1; animation: kc-write 4s ease-in-out infinite; }
+.kc-scan { animation: kc-scan 3s ease-in-out infinite; }
+
 @media (prefers-reduced-motion: reduce) {
   .kc-drift-1, .kc-drift-2, .kc-drift-3, .kc-pulse, .kc-fade {
     animation: none;
   }
+  .kc-draw, .kc-trace, .kc-write { animation: none; stroke-dasharray: none; }
+  .kc-unfold, .kc-breathe, .kc-sway, .kc-grid, .kc-hit, .kc-rebal,
+  .kc-kenburns-a, .kc-kenburns-b, .kc-icon-sun, .kc-icon-moon,
+  .kc-shield-hit { animation: none; }
+  .kc-run-x, .kc-run-y, .kc-pop, .kc-pass, .kc-block, .kc-scan { display: none; }
+  .kc-navbar { transition: none; }
   .kc-ripple, .kc-cross, .kc-status-ping { display: none; }
   .kc-travel, .kc-travel.kc-treat { animation: none; }
   .kc-count { animation: none; }
@@ -191,4 +352,24 @@ body {
   .kc-marquee { animation: none; width: auto; }
   .kc-marquee > ul:first-child { flex-wrap: wrap; justify-content: center; }
   .kc-marquee-dup { display: none; }
+}
+
+/* Printing (mainly the Résumé): always black on white, no animation. */
+@media print {
+  :root,
+  [data-theme] {
+    --background: #ffffff;
+    --foreground: #111111;
+    --muted: #444444;
+    --line: #dddddd;
+    --accent: #7a4a05;
+    --accent-soft: #f8ecd6;
+    --on-accent: #ffffff;
+    --band: #ffffff;
+    color-scheme: light;
+  }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

@@ -65,8 +65,8 @@ export function VideoPlayer({ id, title }: VideoPlayerProps) {
         <span className="relative grid h-16 w-16 place-items-center sm:h-20 sm:w-20">
           <span className="kc-play-ring absolute inset-0 rounded-full border-2 border-white" />
           <span className="kc-play-ring absolute inset-0 rounded-full border-2 border-white [animation-delay:0.9s]" />
-          <span className="relative grid h-full w-full place-items-center rounded-full bg-white/95 shadow-lg transition-transform duration-300 group-hover:scale-110">
-            <svg viewBox="0 0 24 24" className="ml-1 h-7 w-7 sm:h-8 sm:w-8" style={{ fill: "#0f766e" }}>
+          <span className="relative grid h-full w-full place-items-center rounded-full bg-accent shadow-lg transition-transform duration-300 group-hover:scale-110">
+            <svg viewBox="0 0 24 24" className="ml-1 h-7 w-7 sm:h-8 sm:w-8" style={{ fill: "var(--on-accent)" }}>
               <path d="M8 5.5v13l11-6.5z" />
             </svg>
           </span>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AboutTimeline } from "@/components/about-timeline";
 import { PageIntro } from "@/components/page-intro";
 
 export const metadata: Metadata = {
@@ -73,6 +74,8 @@ export default function AboutPage() {
           maths, and a plain statement of what each tool leaves out.
         </p>
       </div>
+
+      <AboutTimeline />
 
       <dl className="mt-14 divide-y divide-line border-y border-line">
         {facts.map((f) => (

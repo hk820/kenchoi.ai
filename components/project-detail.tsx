@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProject, type Block } from "@/lib/projects";
 import { PageIntro } from "./page-intro";
+import { ProjectSpark, sparkCaptions } from "./project-spark";
 import { TagList } from "./tag-list";
 
 function BlockContent({ block }: { block: Block }) {
@@ -62,6 +63,13 @@ export function ProjectDetail({ slug }: { slug: string }) {
       {project.demo && (
         <p className="mt-4 text-sm text-muted">{project.demo.note}</p>
       )}
+
+      <figure className="mt-12 rounded-2xl border border-line bg-band p-5 sm:p-8">
+        <ProjectSpark slug={project.slug} className="mx-auto w-full max-w-lg" />
+        <figcaption className="mt-4 text-sm leading-6 text-muted">
+          {sparkCaptions[project.slug]}
+        </figcaption>
+      </figure>
 
       {project.facts && (
         <ul className="mt-12 grid gap-3 sm:grid-cols-3">

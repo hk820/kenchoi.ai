@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { CopyButton } from "@/components/copy-button";
+import { HkClock } from "@/components/hk-clock";
 import { PageIntro } from "@/components/page-intro";
 import { contact } from "@/lib/site";
 
@@ -42,15 +44,19 @@ export default function ContactPage() {
         Based in Hong Kong. Happy to talk in English, Cantonese or Mandarin.
       </PageIntro>
 
-      <ul className="mt-12 divide-y divide-line rounded-2xl border border-line">
+      <div className="mt-10">
+        <HkClock />
+      </div>
+
+      <ul className="mt-10 divide-y divide-line overflow-hidden rounded-2xl border border-line">
         {channels.map((c) => (
-          <li key={c.label}>
+          <li key={c.label} className="flex items-center">
             <a
               href={c.href}
               {...(c.external
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : {})}
-              className="group flex flex-col gap-1 px-5 py-5 transition-colors hover:bg-band sm:flex-row sm:items-center sm:justify-between sm:px-6"
+              className="group flex min-w-0 flex-1 flex-col gap-1 px-5 py-5 transition-colors hover:bg-band sm:flex-row sm:items-center sm:justify-between sm:px-6"
             >
               <span className="text-sm text-muted">{c.label}</span>
               <span className="font-medium break-all text-foreground group-hover:text-accent">
@@ -58,6 +64,11 @@ export default function ContactPage() {
                 {c.external && <span aria-hidden="true"> ↗</span>}
               </span>
             </a>
+            {c.label === "Email" && (
+              <span className="pr-4 sm:pr-5">
+                <CopyButton text={c.value} label="email address" />
+              </span>
+            )}
           </li>
         ))}
       </ul>

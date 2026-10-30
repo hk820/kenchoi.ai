@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageIntro } from "@/components/page-intro";
+import { ServiceIcon, type ServiceIconKind } from "@/components/service-icon";
 
 export const metadata: Metadata = {
   title: "Work with me",
@@ -8,9 +9,16 @@ export const metadata: Metadata = {
     "Corporate AI training, AI agent prototypes with guardrails, and forecasting, risk and analytics tools for finance teams in Hong Kong.",
 };
 
-const offers = [
+const offers: {
+  title: string;
+  icon: ServiceIconKind;
+  text: string;
+  proof: string;
+  link: { href: string; label: string };
+}[] = [
   {
     title: "Corporate AI training",
+    icon: "training",
     text: "Hands-on AI and agentic AI training that gets business staff using AI in their own work, designed around your team's tasks.",
     proof:
       "Delivered for The Hong Kong Jockey Club (2024–2026), Sony (HK) Limited (2025–2026), AEL Engineering Limited (2024) and Chance Century Education and Training (2026).",
@@ -18,6 +26,7 @@ const offers = [
   },
   {
     title: "AI agent prototypes with guardrails",
+    icon: "agent",
     text: "Tool-calling AI agents for finance and operations workflows, with permission checks, human approval, budget caps and audit logs designed in from the start.",
     proof:
       "The AI Agent Guardrail Lab shows the approach: ten categories of controls and automated adversarial tests.",
@@ -28,6 +37,7 @@ const offers = [
   },
   {
     title: "Forecasting, risk and analytics tools",
+    icon: "forecast",
     text: "Cash flow forecasting, stress testing, portfolio risk analysis and management dashboards in Python and Power BI, built to be explained and checked.",
     proof:
       "Five years in an insurer's Group Treasury supporting forecasting and liquidity analytics, plus open projects on stress testing and portfolio review.",
@@ -46,9 +56,14 @@ export default function WorkWithMePage() {
       <ul className="mt-12 grid gap-5">
         {offers.map((o) => (
           <li key={o.title} className="rounded-2xl border border-line p-6 sm:p-8">
-            <h2 className="font-serif text-2xl font-semibold tracking-tight text-foreground">
-              {o.title}
-            </h2>
+            <div className="flex items-center gap-4">
+              <span className="grid h-14 w-14 shrink-0 place-items-center rounded-xl border border-line bg-band">
+                <ServiceIcon kind={o.icon} className="h-12 w-12" />
+              </span>
+              <h2 className="font-serif text-2xl font-semibold tracking-tight text-foreground">
+                {o.title}
+              </h2>
+            </div>
             <p className="mt-3 leading-7 text-muted">{o.text}</p>
             <p className="mt-4 rounded-lg bg-band px-4 py-3 text-sm leading-6 text-foreground">
               {o.proof}

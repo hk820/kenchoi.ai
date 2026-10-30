@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { FanChart } from "@/components/fan-chart";
+import { introChartClass } from "@/components/page-intro";
+import { ReadingProgress } from "@/components/reading-progress";
 import { contact } from "@/lib/site";
 import { projects } from "@/lib/projects";
 import {
@@ -53,7 +56,13 @@ function RoleItem({ role }: { role: Role }) {
     <div className="mt-6 first:mt-0">
       <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
         <h3 className="font-semibold text-foreground">{role.title}</h3>
-        <p className="shrink-0 text-sm text-muted tabular-nums">
+        <p className="flex shrink-0 items-center gap-2 text-sm text-muted tabular-nums">
+          {role.dates.includes("Present") && (
+            <span aria-hidden="true" className="relative inline-flex h-2 w-2">
+              <span className="kc-status-ping absolute inset-0 rounded-full bg-accent" />
+              <span className="relative h-2 w-2 rounded-full bg-accent" />
+            </span>
+          )}
           {role.dates}
         </p>
       </div>
@@ -77,7 +86,9 @@ function RoleItem({ role }: { role: Role }) {
 export default function ResumePage() {
   return (
     <>
-      <header>
+      <ReadingProgress />
+      <header className="relative isolate">
+        <FanChart seed="Résumé" className={introChartClass} />
         <h1 className="font-serif text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
           {contact.name}
         </h1>

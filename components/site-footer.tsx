@@ -7,7 +7,7 @@ const socialLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-line">
+    <footer className="border-t border-line print:hidden">
       <div className="mx-auto flex max-w-3xl flex-col gap-3 px-6 py-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
         <p>
           © <CopyrightYear /> Ken Tsai
