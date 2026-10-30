@@ -38,7 +38,8 @@ export default function AboutPage() {
 
       <div className="mt-12 space-y-6 text-lg leading-8 text-muted">
         <p>
-          From August 2021 to October 2026 I was a Senior Project Data Analyst
+          From August 2021 to October 2026 I was an External Consultant &ndash;
+          Senior Project Data Analyst
           in an insurer&rsquo;s Group Treasury. I supported the cash flow forecasting
           and optimal cash workstreams, and the delivery of the Liquidity
           Analytics Platform on Microsoft Azure, from gathering requirements

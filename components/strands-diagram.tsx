@@ -15,7 +15,7 @@ const strands: {
   labelY: number;
   anchor: "start" | "middle" | "end";
 }[] = [
-  { id: "ml", label: "Machine Learning Engineer", cx: 142, cy: 118, drift: "kc-drift-1", labelX: 6, labelY: 24, anchor: "start" },
+  { id: "ml", label: "Forward Deployed Engineer (FDE)", cx: 142, cy: 118, drift: "kc-drift-1", labelX: 6, labelY: 24, anchor: "start" },
   { id: "ds", label: "Data Scientist", cx: 218, cy: 118, drift: "kc-drift-2", labelX: 354, labelY: 24, anchor: "end" },
   { id: "agentic", label: "Agentic AI Developer", cx: 180, cy: 184, drift: "kc-drift-3", labelX: 180, labelY: 300, anchor: "middle" },
 ];
@@ -120,7 +120,7 @@ export function StrandsDiagram() {
         viewBox="0 0 360 312"
         className="mx-auto w-full max-w-[360px]"
         role="img"
-        aria-label="Three overlapping circles: Machine Learning Engineer, Data Scientist and Agentic AI Developer. The highlighted circles show which roles the current example draws on."
+        aria-label="Three overlapping circles: Forward Deployed Engineer (FDE), Data Scientist and Agentic AI Developer. The highlighted circles show which roles the current example draws on."
       >
         {strands.map((s) => (
           <g key={s.id} className={s.drift}>

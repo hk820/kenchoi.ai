@@ -1,8 +1,7 @@
-// About page: milestones since 2021. A comet runs along the line and
+// About page: milestones since 2023. A comet runs along the line and
 // lights each year as it passes (animation in globals.css).
 
 const milestones = [
-  { year: "2021", text: "Joined an insurer's Group Treasury" },
   { year: "2023", text: "Lecturer at HKU SPACE; researcher at HSUHK" },
   { year: "2024", text: "First corporate AI training and public talk" },
   { year: "2025", text: "AI workshops for Sony (HK)" },
@@ -22,7 +21,7 @@ export function AboutTimeline() {
         id="timeline-heading"
         className="font-serif text-2xl font-semibold tracking-tight text-foreground"
       >
-        Since 2021
+        Since 2023
       </h2>
       <div className="relative mt-8">
         {/* Line across (tablet and desktop) */}
@@ -50,7 +49,10 @@ export function AboutTimeline() {
           </span>
         </div>
 
-        <ol className="sm:grid sm:grid-cols-5 sm:gap-3">
+        <ol
+          className="sm:grid sm:gap-3"
+          style={{ gridTemplateColumns: `repeat(${n}, minmax(0, 1fr))` }}
+        >
           {milestones.map((m, i) => (
             <li
               key={m.year}

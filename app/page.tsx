@@ -5,7 +5,7 @@ import Link from "next/link";
 import { FanChart } from "@/components/fan-chart";
 import { StrandsDiagram } from "@/components/strands-diagram";
 
-const roles = ["Machine learning engineer", "Data scientist", "Agentic AI developer"];
+const roles = ["Forward Deployed Engineer (FDE)", "Data Scientist", "Agentic AI Developer"];
 
 const photoSrc = "/images/ken.jpg";
 const stressTestPreviewSrc = "/images/stress-test-preview.png";
